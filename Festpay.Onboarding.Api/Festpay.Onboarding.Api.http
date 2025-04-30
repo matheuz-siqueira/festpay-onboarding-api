@@ -1,0 +1,6 @@
+@Festpay.Onboarding.Api_HostAddress = http://localhost:5081
+
+GET {{Festpay.Onboarding.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
