@@ -36,8 +36,8 @@ Deverá ser desenvolvido métodos para:
 
 ## 📤 Entrega
 
-- Criar um fork do projeto **até sexta-feira (02/05)**
+- Criar um fork do projeto e submetê-lo com as implementações
 - Atualizar o README com:
   - Tecnologias utilizadas
   - Instruções para rodar o projeto
-- Enviar para o e-mail : **fernando@festpay.com.br** informando a conclusão do teste.
+- As instruções para envio do projeto deverão seguir as orientações enviadas pelo recrutador.
