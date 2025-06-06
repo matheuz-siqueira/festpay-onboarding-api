@@ -16,6 +16,15 @@ public class NotFoundException(string entityName)
     : ApplicationExceptions(string.Format(ErrorMessageConstants.NotFound, entityName))
 { }
 
+public class AlreadyCanceledException(string entityName)
+    : ApplicationExceptions(string.Format(ErrorMessageConstants.Canceled, entityName))
+{ }
+
+public class AccountDeactivatedException(string entityName)
+    : ApplicationExceptions(string.Format(ErrorMessageConstants.AccountDeactivated, entityName))
+{ }
+
+
 public class ValidationException(IEnumerable<ValidationFailure> failures)
     : ApplicationExceptions(string.Join(" / ", failures.Select(f => f.ErrorMessage)))
 {

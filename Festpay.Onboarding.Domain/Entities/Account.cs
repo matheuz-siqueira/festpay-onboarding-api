@@ -27,6 +27,27 @@ public class Account : EntityBase
             throw new InvalidPhoneNumberException(Phone);
     }
 
+    public void EnsureSufficientBalance(decimal amount)
+    {
+        if (Balance < amount)
+            throw new InsufficientBalanceException();
+    }
+
+    public void UpdateBalance(decimal newBalance)
+    {
+        Balance = newBalance;
+    }
+
+    public void Debit(decimal amount)
+    {
+        Balance -= amount;
+    }
+
+    public void Credit(decimal amount)
+    {
+        Balance += amount;
+    }
+
     public class Builder
     {
         private readonly Account _account = new();

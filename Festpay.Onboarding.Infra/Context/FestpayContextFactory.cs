@@ -14,13 +14,18 @@ public class FestpayContextFactory : IDesignTimeDbContextFactory<FestpayContext>
     public FestpayContext CreateDbContext(string[] args)
     {
         var connectionString = Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING") ?? throw new Exception("Connection string not found");
-
-        // SQLite
+        //SQLite
         var optionsBuilder = new DbContextOptionsBuilder<FestpayContext>();
         optionsBuilder
             .UseSqlite(connectionString)
             .EnableSensitiveDataLogging(false)
             .EnableDetailedErrors(false);
+
+        //SqlServer   
+        // var optionsBuilder = new DbContextOptionsBuilder<FestpayContext>();
+        // optionsBuilder.UseSqlServer(connectionString)
+        //     .EnableSensitiveDataLogging(false)
+        //     .EnableDetailedErrors(false);
 
         return new FestpayContext(optionsBuilder.Options);
     }

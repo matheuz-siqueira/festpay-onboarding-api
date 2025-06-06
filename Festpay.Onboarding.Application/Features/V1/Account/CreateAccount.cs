@@ -57,7 +57,7 @@ public sealed class CreateAccountCommandHandler(FestpayContext dbContext) : IReq
             throw new EntityAlreadyExistsException("Conta");
         }
 
-        var account = new Account.Builder()
+        var account = new Domain.Entities.Account.Builder()
             .WithName(request.Name)
             .WithDocument(request.Document)
             .WithEmail(request.Email)
@@ -74,7 +74,7 @@ public sealed class CreateAccountCommandHandler(FestpayContext dbContext) : IReq
     }
 }
 
-internal sealed class CreateAccountCommandEndpoint : ICarterModule
+public sealed class CreateAccountCommandEndpoint : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {

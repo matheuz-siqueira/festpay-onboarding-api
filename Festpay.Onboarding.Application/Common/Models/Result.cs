@@ -38,6 +38,16 @@ public class Result
         return Results.Created("", new Result(data, true, message));
     }
 
+    public static IResult NoContent()
+    {
+        return Results.NoContent();
+    }
+
+    public static IResult BadRequest(string message)
+    {
+        return Results.BadRequest(new Result(null, false, message));
+    }
+
     public static Result Failure(string message)
     {
         return new Result(null, false, message);

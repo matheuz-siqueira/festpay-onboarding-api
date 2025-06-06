@@ -63,3 +63,6 @@ public class InvalidHourlyRateException(decimal hourlyRate)
 {
     public decimal HourlyRate { get; } = hourlyRate;
 }
+
+public class InsufficientBalanceException()
+    : DomainException($"The account does not have sufficient funds for the transaction.");

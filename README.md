@@ -41,3 +41,25 @@ Deverá ser desenvolvido métodos para:
   - Tecnologias utilizadas
   - Instruções para rodar o projeto
 - As instruções para envio do projeto deverão seguir as orientações enviadas pelo recrutador.
+
+## Tecnologias Utilizadas: 
+* SQLite 
+* .NET 9 
+* MediatR 
+* FluentValidation
+* Swagger
+
+## Instruções para rodar o projeto 
+
+
+Buildar a aplicação com o comando: 
+
+``dotnet build``
+
+Para aplicar as migrations no projeto **Festpay.Onboarding.Infra** rodar o comando: 
+
+``dotnet ef database update`` 
+
+Para rodar a aplicação pelo terminal acessar o projeto **Festpay.Onboarding.Api** e utilizar o comando: 
+
+``dotnet watch run`` 

@@ -1,3 +1,4 @@
+
 using Festpay.Onboarding.Infra.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -24,7 +25,6 @@ public static class DependencyInjection
     {
         services.AddSwaggerGen(c => c.LoadOpenApiOptions());
     }
-
     private static void LoadOpenApiOptions(this SwaggerGenOptions options)
     {
         var contact = new OpenApiContact() { Name = "Festpay Onboarding" };
@@ -39,4 +39,6 @@ public static class DependencyInjection
 
         options.SwaggerDoc("v1", info);
     }
+
+
 }
