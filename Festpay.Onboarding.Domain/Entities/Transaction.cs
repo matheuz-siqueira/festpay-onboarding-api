@@ -21,10 +21,10 @@ public class Transaction : EntityBase
             throw new RequiredFieldException(nameof(DestinationAccountId));
 
         if (SourceAccountId == DestinationAccountId)
-            throw new ArgumentException("Source and destination accounts must be different.");
+            throw new EqualAccountsException(DestinationAccountId);
 
         if (Amount <= 0)
-            throw new ArgumentException("Transaction amount must be greater than zero.");
+            throw new InvalidAmountException(Amount);
     }
 
     public class Builder
@@ -77,7 +77,7 @@ public class Transaction : EntityBase
     public void Cancel()
     {
         if (Canceled)
-            throw new ArgumentException("Transaction already cancelled");
+            throw new TransactionAlreadyCanceledException(Id);
 
         Canceled = true;
     }

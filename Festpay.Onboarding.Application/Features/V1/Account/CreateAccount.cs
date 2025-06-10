@@ -3,7 +3,6 @@ using MediatR;
 using Festpay.Onboarding.Domain.Extensions;
 using Festpay.Onboarding.Infra.Context;
 using Festpay.Onboarding.Application.Common.Exceptions;
-using Festpay.Onboarding.Domain.Entities;
 using Carter;
 using Microsoft.AspNetCore.Routing;
 using Festpay.Onboarding.Application.Common.Constants;

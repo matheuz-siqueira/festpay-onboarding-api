@@ -39,13 +39,13 @@ public sealed class CreateTransactionCommandHandler(FestpayContext dbContext) : 
 {
     public async Task<bool> Handle(CreateTransactionCommand request, CancellationToken cancellationToken)
     {
-        var source = await GetAccount(request.SourceAccountId);
+        var source = await GetAccount(request.SourceAccountId, cancellationToken);
         if (source is null)
             throw new NotFoundException("Conta");
 
         source.EnsureSufficientBalance(request.Amount);
 
-        var destination = await GetAccount(request.DestinationAccountId);
+        var destination = await GetAccount(request.DestinationAccountId, cancellationToken);
         if (destination is null)
             throw new NotFoundException("Conta");
 
@@ -68,9 +68,9 @@ public sealed class CreateTransactionCommandHandler(FestpayContext dbContext) : 
         return await dbContext.SaveChangesAsync(cancellationToken) > 0;
     }
 
-    private async Task<Domain.Entities.Account?> GetAccount(Guid id)
+    private async Task<Domain.Entities.Account?> GetAccount(Guid id, CancellationToken cancellationToken)
     {
-        return await dbContext.Accounts.FirstOrDefaultAsync(x => x.Id == id);
+        return await dbContext.Accounts.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 }
 
