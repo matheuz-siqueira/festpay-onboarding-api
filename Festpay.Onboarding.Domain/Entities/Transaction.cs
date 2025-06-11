@@ -21,7 +21,7 @@ public class Transaction : EntityBase
             throw new RequiredFieldException(nameof(DestinationAccountId));
 
         if (SourceAccountId == DestinationAccountId)
-            throw new EqualAccountsException(DestinationAccountId);
+            throw new EqualAccountsException();
 
         if (Amount <= 0)
             throw new InvalidAmountException(Amount);

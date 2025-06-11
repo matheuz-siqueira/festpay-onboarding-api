@@ -1,4 +1,5 @@
 using System.Dynamic;
+using Festpay.Onboarding.Domain.Entities;
 
 namespace Festpay.Onboarding.Domain.Exceptions;
 
@@ -69,8 +70,8 @@ public class InvalidHourlyRateException(decimal hourlyRate)
 public class InsufficientBalanceException()
     : DomainException($"The account does not have sufficient funds for the transaction.");
 
-public class EqualAccountsException(Guid destinationAccountId)
-    : DomainException($"The destination account must be different from the source account.", nameof(destinationAccountId));
+public class EqualAccountsException()
+    : DomainException($"The destination account must be different from the source account.", nameof(Transaction.DestinationAccountId));
 
 public class InvalidAmountException(decimal amount) :
     DomainException($"The transaction amount '{amount}' must be greater than zero.", nameof(amount))

@@ -51,7 +51,7 @@ public class TransactionTest
                 .Build();
         });
 
-        Assert.Equal(nameof(Transaction.SourceAccountId), exception.FieldName);
+        Assert.Equal(nameof(Transaction.DestinationAccountId), exception.FieldName);
     }
 
     [Fact]
